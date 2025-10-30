@@ -91,24 +91,14 @@ The `type` field in file entries corresponds to these TAR file types:
 ## Use Cases
 
 This extension is perfect for:
-- **Asset Bundling**: Package multiple assets into a single TAR file for easier distribution
-- **Save Data**: Store complex save data structures in TAR format
-- **Mod Support**: Allow users to package mods as TAR archives
-- **Resource Streaming**: Load assets on-demand from TAR archives
-- **Cross-Platform Assets**: Ensure consistent file packaging across different platforms
-
-## Limitations
-
-- **Read-Only**: This extension only supports reading TAR archives, not creating them
-- **Memory-Based**: Archives must be loaded entirely into memory
-- **No Streaming**: Files are read completely, not streamed
-- **Standard TAR**: Only supports standard TAR format (POSIX.1-1988)
+- **Asset Bundling**: Package assets into a single TAR file for easier distribution.
+- **Mod Support**: Allow users to package mods as TAR archives.
 
 ## Performance Notes
 
-- TAR archives are loaded entirely into memory, so consider file sizes for mobile platforms
-- File lookup is sequential, so archives with many files may have slower access times
-- Consider using compressed TAR files (.tar.gz, .tar.zst) to reduce bundle size
+- TAR archives are loaded entirely into memory.
+- File lookup is sequential, so archives with many files may have slower access times.
+- Consider using compressed TAR files (.tar.gz, .tar.zst) to reduce bundle size.
 
 ## License
 
