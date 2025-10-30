@@ -10,7 +10,7 @@ height = 640
 
 [project]
 title = microtar_test
-custom_resources = /test.txt, /test.tar, /test.tar.zst
+custom_resources = /test.txt, /test1.tar, /test2.tar.zst
 dependencies#0 = https://github.com/indiesoftby/defold-zstd/archive/refs/tags/1.5.7-3.zip
 
 [library]

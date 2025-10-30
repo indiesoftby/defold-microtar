@@ -1,11 +1,11 @@
 function init(self)
-    local tar_data = sys.load_resource("/test.tar")
+    local tar_data = sys.load_resource("/test1.tar")
     local contents = microtar.list_contents(tar_data)
     pprint(contents)
     local file_data = microtar.read_file(tar_data, "test.txt")
     assert(file_data == "HELLO")
 
-    local tar_zst_data = sys.load_resource("/test.tar.zst")
+    local tar_zst_data = sys.load_resource("/test2.tar.zst")
     local tar_data2 = zstd.decompress(tar_zst_data)
     assert(tar_data == tar_data2)
     local file_data2 = microtar.read_file(tar_data2, "test.txt")
