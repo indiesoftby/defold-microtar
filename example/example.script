@@ -1,0 +1,34 @@
+function init(self)
+    local tar_data = sys.load_resource("/test.tar")
+    local contents = microtar.list_contents(tar_data)
+    pprint(contents)
+    local file_data = microtar.read_file(tar_data, "test.txt")
+    assert(file_data == "HELLO")
+
+    local tar_zst_data = sys.load_resource("/test.tar.zst")
+    local tar_data2 = zstd.decompress(tar_zst_data)
+    assert(tar_data == tar_data2)
+    local file_data2 = microtar.read_file(tar_data2, "test.txt")
+    assert(file_data2 == file_data)
+
+    print("ALL TESTS PASSED OK!")
+
+    if sys.get_config_string("bootstrap.exit_immediately") then
+        sys.exit(0)
+    end
+end
+
+function final(self)
+end
+
+function update(self, dt)
+end
+
+function on_message(self, message_id, message, sender)
+end
+
+function on_input(self, action_id, action)
+end
+
+function on_reload(self)
+end

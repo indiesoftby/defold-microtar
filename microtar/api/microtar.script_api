@@ -1,0 +1,31 @@
+- name: microtar
+  type: table
+  desc: The microtar library for reading TAR archives in Defold
+  members:
+
+  - name: list_contents
+    type: function
+    desc: Lists all files and their metadata in a TAR archive
+    parameters:
+    - name: archive_data
+      type: string
+      desc: The TAR archive data as a binary string
+    returns:
+    - name: contents
+      type: table
+      desc: Array of file entries, each containing name, size, type, mode, and mtime fields. Returns nil on error.
+
+  - name: read_file
+    type: function
+    desc: Reads a specific file from a TAR archive
+    parameters:
+    - name: archive_data
+      type: string
+      desc: The TAR archive data as a binary string
+    - name: filename
+      type: string
+      desc: The name of the file to read from the archive
+    returns:
+    - name: file_data
+      type: string
+      desc: The file content as a binary string. Returns nil if file not found or on error.
