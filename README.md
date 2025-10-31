@@ -6,6 +6,11 @@ This is a native extension for [the Defold game engine](https://defold.com/) tha
 
 Currently, the extension provides read-only functionality with two main functions: `list_contents` and `read_file`. It supports reading TAR archives from memory, making it perfect for loading bundled assets or processing compressed archives. The extension works seamlessly with compressed TAR files when combined with compression libraries like [`zstd`](https://github.com/indiesoftby/defold-zstd).
 
+Our current use case for this extension is storing 5000 levels in text format for a puzzle game. The total size of all files is relatively small, ~2.1 megabytes, but: 
+- As custom resources, with each file separately: all level files with the engine’s standard LZ4 compression are about 1 megabyte in total, but the engine resource files with the `.arci` and `.dmanifest` extensions inflated to 550 kilobytes and 323 kilobytes respectively.
+- In a ZIP archive: the total archive size is 1.8 megabytes.
+- In a TAR + ZSTD (.tar.zst) archive: the total archive size is 223 kilobytes, since the entire archive is compressed at once rather than each file individually.
+
 ## Usage
 
 First add this extension as a dependency to your `game.project`:
